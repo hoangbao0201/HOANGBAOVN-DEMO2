@@ -165,7 +165,7 @@ class BlogService {
     async searchBlogs(query?: string): Promise<any> {
         try {
             const blogsRes = await fetch(
-                `${API_BASE_URL}/api/blogs/search?${query}`,
+                `${API_BASE_URL}/api/blogs/search${query || ""}`,
                 {
                     method: "GET",
                     // headers: {
@@ -186,7 +186,7 @@ class BlogService {
 
     async getBlog(slug: string): Promise<any> {
         try {
-            const blogRes = await fetch(`${API_BASE_URL}/api/blogs/${slug}`, {
+            const blogRes = await fetch(`${API_BASE_URL}/api/blogs/${slug || ""}`, {
                 method: "GET",
             });
             const blog = await blogRes.json();

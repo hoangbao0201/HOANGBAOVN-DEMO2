@@ -13,7 +13,7 @@ class TagService {
     async findAll(query?: string): Promise<any> {
         try {
             const tagsRes = await fetch(
-                `${API_BASE_URL}/api/tags?${query}`,
+                `${API_BASE_URL}/api/tags${query || ""}`,
                 {
                     method: "GET",
                 }

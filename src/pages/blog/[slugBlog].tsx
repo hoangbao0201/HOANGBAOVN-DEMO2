@@ -69,7 +69,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     return {
         props: {
-            blog: blog,
+            blog: blog || null,
         },
         revalidate: REVALIDATE_TIME,
     };
