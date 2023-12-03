@@ -35,6 +35,34 @@ export interface GetBlogsProps {
         email: string;
         rank: number;
     };
+    _count: {
+        userViews: number;
+        userLikes: number;
+        userSaves: number;
+    };
+}
+
+export interface GetBlogDetailProps {
+    blogId: number;
+    slug: string;
+    title: string;
+    summary: string;
+    content: string;
+    thumbnailUrl: string;
+    createdAt: Date;
+    updatedAt: Date;
+    blogTags: { tags: TagProps }[];
+    author: {
+        role: {
+            roleId: number;
+            roleName: "admin" | "user";
+        };
+        userId: number;
+        name: string;
+        username: string;
+        email: string;
+        rank: number;
+    };
     blogImages: { urlImage: string }[]
     _count: {
         userViews: number;
@@ -160,9 +188,6 @@ class BlogService {
         try {
             const blogRes = await fetch(`${API_BASE_URL}/api/blogs/${slug}`, {
                 method: "GET",
-                // headers: {
-                //     Authorization: `Bearer ${token}`
-                // }
             });
             const blog = await blogRes.json();
             return blog;

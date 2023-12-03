@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import { GetStaticProps } from "next";
 
 import { NextPageWithLayout } from "./_app";
+import { REVALIDATE_TIME } from "@/lib/constants";
 import CardBlog from "@/components/common/CardBlog";
 import MainLayout from "@/components/layouts/MainLayout";
 import SideLeftHome from "@/components/modules/Home/SideLeftHome";
@@ -57,7 +58,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
     return {
         props: {
-            blogs: blogs || [],
+            blogs: blogs || null,
         },
+        revalidate: REVALIDATE_TIME,
     };
 };
