@@ -17,10 +17,9 @@ interface Params extends ParsedUrlQuery {
 
 interface BlogDetailPageProps {
     blog: GetBlogDetailProps;
-    slugBlog: any;
 }
 
-const BlogDetailPage: NextPageWithLayout<BlogDetailPageProps> = ({ blog, slugBlog }) => {
+const BlogDetailPage: NextPageWithLayout<BlogDetailPageProps> = ({ blog }) => {
     return (
         <>
             {/* {blog && (
@@ -71,7 +70,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return {
         props: {
             blog: blog,
-            slugBlog: slugBlog
         },
         revalidate: REVALIDATE_TIME,
     };
