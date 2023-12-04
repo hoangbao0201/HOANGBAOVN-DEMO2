@@ -65,7 +65,7 @@ BlogDetailPage.getLayout = (page) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const { slugBlog } = context.params as Params;
-    const { success, blog } = await blogService.getBlog(slugBlog);
+    const { success, blog } = await blogService.getBlogDetail(slugBlog);
 
     return {
         props: {

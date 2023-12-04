@@ -40,9 +40,9 @@ class UserService {
         }
     }
 
-    async userDetail(username: string) : Promise<any> {
+    async getUserDetail(username?: string) : Promise<any> {
         try {
-            const userRes = await fetch(`${API_BASE_URL}/api/users/${username}`, {
+            const userRes = await fetch(`${API_BASE_URL}/api/users/${username || ""}`, {
                 method: "GET",
             });
             const user = await userRes.json();

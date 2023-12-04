@@ -94,7 +94,7 @@ UserDetailPage.getLayout = (page) => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
     const { slugUser } = context.params as Params;
-    const { success, user } = await userService.userDetail(slugUser);
+    const { success, user } = await userService.getUserDetail(slugUser);
 
     return {
         props: {

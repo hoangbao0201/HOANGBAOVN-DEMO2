@@ -184,7 +184,7 @@ class BlogService {
         }
     }
 
-    async getBlog(slug: string): Promise<any> {
+    async getBlogDetail(slug?: string): Promise<any> {
         try {
             const blogRes = await fetch(`${API_BASE_URL}/api/blogs/${slug || ""}`, {
                 method: "GET",
